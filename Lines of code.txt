@@ -1,0 +1,14 @@
+Go //Find out if it's installed
+Go version
+package main //must be 'main' if going to be an executable. If you change it to something else then try to build, you get no error + NOTHING :)
+import "fmt" // golang.org/pkg
+func main() { //an exe must have a function called main
+	fmt.Println("hello wolf!")
+	integer := 23
+	fmt.Printf("%v", integer)
+}
+Go run wolf.go
+Go build wolf.go //main.exe
+./wolf.exe
+var card string = "Ace of Spades"
+card := "Ace of Spades"
