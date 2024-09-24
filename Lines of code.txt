@@ -21,3 +21,11 @@ cards = append(cards, "Jack of Diamonds")
 for i, card := range cards {
 	fmt.Println(i, card)
 }
+type deck []string
+func (d deck) print() { //receiver function. Any variable of type 'deck' gets access to the print method
+	for i, card := range d {
+		fmt.Println(i, card)
+	}
+}
+cards := deck{"Ace of Diamonds", newCard()}
+cards.print();
