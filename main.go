@@ -1,15 +1,25 @@
 package main
 
+import "fmt"
+
 func main() {
 
-	cards := deck{"Ace of Diamonds", newCard()}
+	cards := newDeck()
 
-	cards = append(cards, "Jack of Diamonds")
+	handsize := 3
+
+	myHand, myLeftOver := deal(cards, handsize)
+
+	myHand.print()
+
+	fmt.Println("That is hand printed")
+
+	myLeftOver.print()
+
+	c := color("purple")
+
+	fmt.Println(c.describe("is amazing"))
 
 	cards.print()
 
-}
-
-func newCard() string {
-	return "Five of Spades"
 }

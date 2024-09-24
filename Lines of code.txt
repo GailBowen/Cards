@@ -29,3 +29,27 @@ func (d deck) print() { //receiver function. Any variable of type 'deck' gets ac
 }
 cards := deck{"Ace of Diamonds", newCard()}
 cards.print();
+func newDeck() deck {
+	cards := deck{}
+	cardSuits := []string{"Spades", "Hearts", "Diamonds", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+	return cards
+}
+separateDeck := cards[0:13] // [startIndexIncluding: upToNotIncluding]
+separateDeck := cards[:13]  // Number left out - from beginning
+separateDeck := cards[50:]  // Number missed out - to end
+func deal(d deck, handsize int) (deck, deck) {
+	return d[:handsize], d[handsize:]
+}
+myHand, myLeftOver := deal(cards, handsize)
+type color string
+func (c color) describe(description string) string {
+	return string(c) + " " + description
+}
+c := color("purple")
+fmt.Println(c.describe("is amazing"))
