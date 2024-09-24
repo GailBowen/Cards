@@ -11,4 +11,13 @@ Go run wolf.go
 Go build wolf.go //main.exe
 ./wolf.exe
 var card string = "Ace of Spades" //statically typed!
-card := "Ace of Spades"
+card := "Ace of Spades" // := is only for a new variable
+var deckSize int //You can do this outside of func main() !
+func newCard() string {
+	return "Five of Diamonds"
+}
+cards := []string{"Ace of Diamonds", newCard()} //Splice not an array
+cards = append(cards, "Jack of Diamonds")
+for i, card := range cards {
+	fmt.Println(i, card)
+}
