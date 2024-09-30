@@ -53,3 +53,4 @@ func (c color) describe(description string) string {
 }
 c := color("purple")
 fmt.Println(c.describe("is amazing"))
+fmt.Println([]byte(something))//Convert to byte array then print. C#: byte[] infoArray = Encoding.ASCII.GetBytes(info); Loop through each byte to display.

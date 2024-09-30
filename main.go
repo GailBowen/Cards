@@ -4,22 +4,26 @@ import "fmt"
 
 func main() {
 
-	cards := newDeck()
+	// cards := newDeck()
 
-	handsize := 3
+	// handsize := 3
 
-	myHand, myLeftOver := deal(cards, handsize)
+	// myHand, myLeftOver := deal(cards, handsize)
 
-	myHand.print()
+	// myHand.print()
 
-	fmt.Println("That is hand printed")
+	// fmt.Println("That is hand printed")
 
-	myLeftOver.print()
+	// myLeftOver.print()
 
-	c := color("purple")
+	// c := color("purple")
 
-	fmt.Println(c.describe("is amazing"))
+	// fmt.Println(c.describe("is amazing"))
 
-	cards.print()
+	// cards.print()
+
+	something := "In bocca al lupo"
+
+	fmt.Println([]byte(something))
 
 }
