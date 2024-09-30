@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type deck []string
 
@@ -36,4 +39,12 @@ type color string
 
 func (c color) describe(description string) string {
 	return string(c) + " " + description
+}
+
+func (d deck) toString() string {
+
+	deskAsString := []string(d)
+
+	return strings.Join(deskAsString, ",")
+
 }

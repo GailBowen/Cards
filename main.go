@@ -1,29 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"os"
+	"strings"
+)
 
 func main() {
 
-	// cards := newDeck()
+	cards := newDeck()
 
-	// handsize := 3
+	fmt.Println(cards)
 
-	// myHand, myLeftOver := deal(cards, handsize)
+	//Convert deck to string.
+	cardsAsString := cards.toString()
 
-	// myHand.print()
+	//Convert string to byte slice.
+	cardsAsByteSlice := []byte(cardsAsString)
 
-	// fmt.Println("That is hand printed")
+	err := os.WriteFile("Chickens", cardsAsByteSlice, 0644)
 
-	// myLeftOver.print()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// c := color("purple")
+	bytesFromFile, readError := os.ReadFile("Chickens")
 
-	// fmt.Println(c.describe("is amazing"))
+	if readError != nil {
+		log.Fatal(readError)
+	}
 
-	// cards.print()
+	//Convert byte slice to string
+	stringFromBytes := string(bytesFromFile)
 
-	something := "In bocca al lupo"
+	//Convert string to string array
+	stringArray := strings.Split(stringFromBytes, ",")
 
-	fmt.Println([]byte(something))
+	//Convert string array to deck
+	myDeck := deck(stringArray)
+
+	fmt.Println("-------------------------------------------------")
+
+	fmt.Println(myDeck)
 
 }

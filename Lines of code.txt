@@ -46,7 +46,7 @@ separateDeck := cards[50:]  // Number missed out - to end
 func deal(d deck, handsize int) (deck, deck) {
 	return d[:handsize], d[handsize:]
 }
-myHand, myLeftOver := deal(cards, handsize)
+myHand, myLeftOver := deal(cards, handsize) //returns two values!!
 type color string
 func (c color) describe(description string) string {
 	return string(c) + " " + description
@@ -54,3 +54,14 @@ func (c color) describe(description string) string {
 c := color("purple")
 fmt.Println(c.describe("is amazing"))
 fmt.Println([]byte(something))//Convert to byte array then print. C#: byte[] infoArray = Encoding.ASCII.GetBytes(info); Loop through each byte to display.
+func (d deck) toString() string {
+	deskAsString := []string(d) //Convert deck to string array
+	return strings.Join(deskAsString, ",")} //Convert string array to string
+cardsAsByteSlice := []byte(cardsAsString)
+err := os.WriteFile("Chickens", cardsAsByteSlice, 0644)
+if err != nil {
+	log.Fatal(err)}
+bytesFromFile, readError := os.ReadFile("Chickens")
+stringFromBytes := string(bytesFromFile) //Convert byte slice to string
+stringArray := strings.Split(stringFromBytes, ",") //Convert string to string array
+myDeck := deck(stringArray) //Convert string array to deck
