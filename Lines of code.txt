@@ -65,3 +65,4 @@ bytesFromFile, readError := os.ReadFile("Chickens")
 stringFromBytes := string(bytesFromFile) //Convert byte slice to string
 stringArray := strings.Split(stringFromBytes, ",") //Convert string to string array
 myDeck := deck(stringArray) //Convert string array to deck
+os.Exit(999)

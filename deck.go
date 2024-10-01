@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -47,4 +48,32 @@ func (d deck) toString() string {
 
 	return strings.Join(deskAsString, ",")
 
+}
+
+func (d deck) SaveToFile(fileName string) {
+	cardsAsString := d.toString()
+	cardsAsByteSlice := []byte(cardsAsString)
+
+	err := os.WriteFile(fileName, cardsAsByteSlice, 0644)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+}
+
+func ReadFromFile(fileName string) deck {
+
+	bytesFromFile, err := os.ReadFile(fileName)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(2)
+	}
+
+	stringFromBytes := string(bytesFromFile)
+
+	stringArray := strings.Split(stringFromBytes, ",")
+
+	return deck(stringArray)
 }
