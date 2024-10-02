@@ -74,3 +74,10 @@ func (d deck) shuffle() {
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
 }
+go mod init cards
+func TestNewDeck(t *testing.T) { //testing file must end _test.go
+	d := newDeck()
+	if len(d) != 52 {
+		t.Errorf("Error: expected 52 cards but got %v", len(d))
+	}
+}
