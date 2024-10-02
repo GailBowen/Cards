@@ -52,7 +52,7 @@ func (d deck) toString() string {
 
 }
 
-func (d deck) SaveToFile(fileName string) {
+func (d deck) saveToFile(fileName string) {
 	cardsAsString := d.toString()
 	cardsAsByteSlice := []byte(cardsAsString)
 
@@ -64,7 +64,7 @@ func (d deck) SaveToFile(fileName string) {
 	}
 }
 
-func ReadFromFile(fileName string) deck {
+func readFromFile(fileName string) deck {
 
 	bytesFromFile, err := os.ReadFile(fileName)
 
