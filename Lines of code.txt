@@ -1,7 +1,7 @@
 Go //Find out if it's installed
 Go version
 package main //must be 'main' if going to be an executable. If you change it to something else then try to build, you get no error + NOTHING :)
-import "fmt" // golang.org/pkg
+import "fmt" // ********golang.org/pkg**********
 func main() { //an exe must have a function called main
 	fmt.Println("hello wolf!")
 	integer := 23
@@ -66,3 +66,11 @@ stringFromBytes := string(bytesFromFile) //Convert byte slice to string
 stringArray := strings.Split(stringFromBytes, ",") //Convert string to string array
 myDeck := deck(stringArray) //Convert string array to deck
 os.Exit(999)
+func (d deck) shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	for i := range d {
+		r := rand.New(source)
+		newPosition := r.Intn(len(d) - 1)
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+}

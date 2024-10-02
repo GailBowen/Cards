@@ -2,11 +2,12 @@ package main
 
 func main() {
 
+	//fmt.Println(rand.Intn(54))
+
 	cards := newDeck()
 
-	cards.SaveToFile("camel")
+	cards.shuffle()
 
-	moreCards := ReadFromFile("camel")
+	cards.print()
 
-	moreCards.print()
 }
